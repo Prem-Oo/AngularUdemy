@@ -1,0 +1,23 @@
+<h1>This is Add {{title}} Page</h1>
+<!-- import {FormsModule} to use ngModel directive -->
+Customer ID::<input [(ngModel)]="CustomerModel.CustomerId" type="text" required=""><br>
+Customer Name::<input [(ngModel)]="CustomerModel.CustomerName" type="text" required=""><br>
+Customer Number::<input [(ngModel)]="CustomerModel.CustomerNumber" type="text"><br>
+<input (click)="Add()" type="button" value="add">
+
+<!-- <h1>{{CustomerModel.CustomerId}}</h1>
+<h1>{{CustomerModel.CustomerName}}</h1>
+<h1>{{CustomerModel.CustomerNumber}}</h1> -->
+
+<table>
+    <tr>
+        <td>Customer ID</td>
+         <td>Customer Name</td>
+          <td>Customer Number</td>
+    </tr>
+    <tr *ngFor="let c of CustomerModels">
+        <td>{{c.CustomerId}}</td>
+        <td>{{c.CustomerName}}</td>
+        <td>{{c.CustomerNumber}}</td>
+    </tr>
+</table>

@@ -1,0 +1,10 @@
+input{
+margin: 1px;
+border-radius: 1px;
+}
+h1{
+    color: gold;
+}
+table, th, td {
+  border: 1px solid;
+}
