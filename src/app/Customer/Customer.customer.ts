@@ -14,4 +14,7 @@ CustomerModels: Array<Customer>=new Array<Customer>();
       this.CustomerModels.push(this.CustomerModel);
       this.CustomerModel=new Customer();
     }
+    get formControls() {
+    return this.CustomerModel.formCustomerGroup.controls;
+  }
 }

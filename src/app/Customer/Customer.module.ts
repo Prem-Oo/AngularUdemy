@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerComponent } from './Customer.customer';
 import { CustomerRoutingModule } from './Customer.routing';
-import  { FormsModule } from '@angular/forms';
+import  { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import  { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,CustomerRoutingModule,
-    FormsModule
+    FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [CustomerComponent]

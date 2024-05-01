@@ -1,10 +1,21 @@
 <h1>This is Add {{title}} Page</h1>
 <!-- import {FormsModule} to use ngModel directive -->
-Customer ID::<input [(ngModel)]="CustomerModel.CustomerId" type="text" required=""><br>
-Customer Name::<input [(ngModel)]="CustomerModel.CustomerName" type="text" required=""><br>
-Customer Number::<input [(ngModel)]="CustomerModel.CustomerNumber" type="text"><br>
-<input (click)="Add()" type="button" value="add">
+<form [formGroup]="CustomerModel.formCustomerGroup" >
+Customer ID::<input formControlName="IdControl" [(ngModel)]="CustomerModel.CustomerId" type="text" ><br>
+ <div *ngIf="formControls['IdControl'].invalid && (formControls['IdControl'].dirty || formControls['IdControl'].touched)">
+ <small *ngIf="formControls['IdControl'].errors?.['required']">Customer ID is required.</small>
+  <small *ngIf="formControls['IdControl'].errors?.['pattern']">Customer ID must be a 3-digit number.</small>
+</div>
 
+
+Customer Name::<input formControlName="NameControl" [(ngModel)]="CustomerModel.CustomerName" type="text" ><br>
+<div *ngIf="formControls['NameControl'].invalid && (formControls['NameControl'].dirty || formControls['NameControl'].touched)">
+    <small *ngIf="formControls['NameControl'].errors?.['required']">Customer Name is required.</small>
+  </div>
+<!--[ngModelOptions]="{standalone: true}" is used to avoid validations for particualr field from a form tag  -->
+Customer Number::<input  [(ngModel)]="CustomerModel.CustomerNumber" type="text" [ngModelOptions]="{standalone: true}" ><br>
+<input [disabled]="!(CustomerModel.formCustomerGroup.valid)" (click)="Add()" type="button" value="add">
+</form>
 <!-- <h1>{{CustomerModel.CustomerId}}</h1>
 <h1>{{CustomerModel.CustomerName}}</h1>
 <h1>{{CustomerModel.CustomerNumber}}</h1> -->
